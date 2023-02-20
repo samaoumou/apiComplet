@@ -9,7 +9,7 @@ nom: {
 required: true,
 type: String
 },
-roles: {
+role: {
 required: true,
 type: String
 },

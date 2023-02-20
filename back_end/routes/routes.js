@@ -35,7 +35,7 @@ router.post("/login",  async (req, res, next) => {
     try {
       //Creating jwt token
       token = jwt.sign(
-        { userId: existingUser.id, email: existingUser.email },
+        { userId: existingUser.id, email: existingUser.email, role: existingUser.role },
         process.env.JWT_SECRET,
         { expiresIn: "1h" }
       );
@@ -52,7 +52,7 @@ router.post("/login",  async (req, res, next) => {
         data: {
           userId: existingUser.id,
           email: existingUser.email,
-          roles: existingUser.roles,
+          role: existingUser.role,
           img: existingUser.img,
           token: token,
         },
@@ -71,7 +71,7 @@ const newUser = Model({
     prenom, 
     nom, 
     date_inscri,
-    roles,
+    role,
     etat, 
     matricule,
     img
